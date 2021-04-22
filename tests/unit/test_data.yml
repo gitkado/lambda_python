@@ -1,0 +1,20 @@
+environment:
+  TABLE_NAME: sample-table
+  AWS_DEFAULT_REGION: ap-northeast-1
+DynamoDB:
+  Table:
+    AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+    KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+  Items:
+    - id: '0001'
+      name: Tanaka
+      age: 100
+      profile: human
+    - id: '0002'
+      name: Suzuki
+      age: 1000
+      profile: god
