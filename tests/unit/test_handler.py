@@ -1,6 +1,7 @@
 import boto3
 import pytest
 import os
+from os import path
 import yaml
 
 from moto import mock_dynamodb2
@@ -8,7 +9,7 @@ from moto import mock_dynamodb2
 
 @pytest.fixture(autouse=True)
 def set_envs(monkeypatch):
-    with open('test_data.yml', 'r', encoding='utf-8') as fp:
+    with open(path.join(path.dirname(path.abspath(__file__)), 'test_data.yml'), 'r', encoding='utf-8') as fp:
         envs = yaml.safe_load(fp)['environment']
 
     for k, v in envs.items():
@@ -18,7 +19,7 @@ def set_envs(monkeypatch):
 @pytest.fixture()
 def table():
     with mock_dynamodb2():
-        with open('test_data.yml', 'r', encoding='utf-8') as fp:
+        with open(path.join(path.dirname(path.abspath(__file__)), 'test_data.yml'), 'r', encoding='utf-8') as fp:
             test_data = yaml.safe_load(fp)['DynamoDB']
 
         table_config = test_data['Table']

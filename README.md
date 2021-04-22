@@ -128,3 +128,9 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 ## SampleBase
 
 https://blog.serverworks.co.jp/moto-pytest-dynamodb
+
+## TestRun
+
+```shell
+lambda_python$ docker-compose up
+```

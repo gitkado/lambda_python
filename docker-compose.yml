@@ -1,0 +1,8 @@
+version: '3'
+services:
+  test:
+    build: .
+    image: pycharm_interpreter:lambda_python
+    volumes:
+      - .:/app
+    command: ['python', '-m', 'pytest', 'tests']
